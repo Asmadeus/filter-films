@@ -2,11 +2,7 @@
   position: relative;
   .c-dropdown-menu {
     display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    padding: 15px;
-    min-width: 100%;
+    z-index: 100;
   }
   .c-dropdown-item {
   }
@@ -15,4 +11,19 @@
       display: block;
     }
   }
+}
+
+@media #{$medium-up} {
+  .c-dropdown {
+    .c-dropdown-menu {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 100%;
+    }
+  }
+}
+
+@media #{$large-up} {
+
 }

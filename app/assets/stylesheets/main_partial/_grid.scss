@@ -1,0 +1,47 @@
+.grid-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .grid-item {
+    width: 142px;
+    height: 204px;
+    margin: 3px 0;
+    background-color: #ECEFF0;
+    padding: 80px 10px 10px 10px;
+    .title {
+      display: inline-block;
+      margin-right: 6px;
+      font-size: 16px;
+    }
+    .year {
+      display: inline-block;
+      opacity: 0.8;
+    }
+    .genres {
+      margin-top: 15px;
+    }
+    .country {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .grid-content {
+    .grid-item {
+      width: 156px;
+      height: 222px;
+      margin: 3px 0;
+    }
+  }
+}
+@media #{$large-up} {
+  .grid-content {
+    .grid-item {
+      width: 132px;
+      height: 188px;
+      margin: 3px 0;
+    }
+  }
+}

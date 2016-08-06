@@ -1,0 +1,18 @@
+.c-dropdown {
+  position: relative;
+  .c-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    padding: 15px;
+    min-width: 100%;
+  }
+  .c-dropdown-item {
+  }
+  &.open {
+    .c-dropdown-menu {
+      display: block;
+    }
+  }
+}

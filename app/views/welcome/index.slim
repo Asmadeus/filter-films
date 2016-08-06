@@ -3,14 +3,10 @@ section.content
     .line-block
       h1.title Result
       .select-order.c-dropdown
-        .order-title Order
-        ul.c-dropdown-menu
-          li.c-dropdown-item by year
-          
+        .order-title.c-dropdown-toggle
+          | Order 
+          span.by by title
+        ul.c-dropdown-menu.select-order-menu
+          li.c-dropdown-item.select-order-value data-order-category="latest" by year
+    
     .grid-content
-      - 43.times do |i|
-        .grid-item
-          .title Title
-          .year year
-          .genres genres
-          .country country

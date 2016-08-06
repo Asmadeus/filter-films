@@ -1,11 +1,43 @@
 .content {
+  background-color: white;
   .line-block {
+    @extend .clearfix;
+    margin: 15px 0;
     .title {
-
+      font-size: 20px;
+      font-weight: bold;
+      float: left;
     }
     .select-order {
+      float: right;
+      margin-top: 7px;
+      background-color: #EDF4FA;
+      border-radius: 3px;
+      cursor: pointer;
+      &:after {
+        position: absolute;
+        content: "";
+        width: 11px;
+        height: 7px;
+        right: 7px;
+        top: 15px;
+        background-image: image-url("arrow.svg");
+        transform: rotate(180deg);
+      }
       .order-title {
-        
+        padding: 11px 30px 11px 17px;
+
+      }
+      .select-order-menu {
+        padding: 17px 15px;
+        background-color: #edf4fa;
+      }
+      .select-order-value {
+      }
+      &.open {
+        &:after {
+          transform: rotate(0deg);
+        }
       }
     }
   }

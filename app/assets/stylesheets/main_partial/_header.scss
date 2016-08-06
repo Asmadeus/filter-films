@@ -77,6 +77,11 @@ header {
         }
       }
       &.open {
+        &:after {
+          background-image: image-url("close.svg");
+          width: 10px;
+          height: 10px;
+        }
       }
     }
   }

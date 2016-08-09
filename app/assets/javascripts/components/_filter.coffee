@@ -13,7 +13,13 @@ class @Filter
       filterAction(filter, obj)
 
     @clearFilterBtn.click ->
-      obj.gridData.currentQuery = obj.gridData.apiUrl
+      filterNames = ["genres"]
+      url = obj.gridData.currentQuery
+      # Удаляем из адреса все фильтры
+      for name in filterNames
+        regex = new RegExp(name + "\\[]=(.+?)&", "g")
+        url = url.replace(regex, "")
+      obj.gridData.currentQuery = url
       obj.gridData.getFilms(obj.gridData.currentQuery)
       clearFilter(obj.elem)
 

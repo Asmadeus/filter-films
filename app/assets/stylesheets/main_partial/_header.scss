@@ -188,9 +188,7 @@ header {
   header {
     .search {
       .search-btn {
-        &.active {
-          display: none;
-        }
+        display: none !important;
       }
     }
     .filter-panel {

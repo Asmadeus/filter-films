@@ -1,6 +1,6 @@
 header {
-  padding-top: 30px;
-  background-color: #ECEFF0;
+  padding: 40px 0 50px 0;
+  background-color: $base-gray;
   .search {
     width: 100%;
     height: 52px;
@@ -19,102 +19,200 @@ header {
       left: 16px;
       top: 16px;
     }
+    .search-btn {
+      display: none;
+      background-color: $base-btn-color;
+      width: 32px;
+      height: 32px;
+      border-radius: 3px;
+      background-image: image-url("search.svg");
+      background-size: 23px;
+      background-position: 5px 4px;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 11px;
+      right: 10px;
+      cursor: pointer;
+      &.active {
+        display: block;
+      }
+    }
     .search-field {
       width: 100%;
       height: 100%;
       background-color: white;
     }
   }
-
-  .filters {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 3px;
-    color: #455B65;
-    font-size: 14px;
-    .filter-item {
-      display: block;
+  .filter-panel {
+    position: relative;
+    .filters {
       position: relative;
-      cursor: pointer;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      &:after {
-        position: absolute;
-        content: "";
-        width: 11px;
-        height: 7px;
-        right: 7px;
-        top: 21px;
-        background-image: image-url("arrow.svg");
-        transform: rotate(180deg);
-      }
-      .filter-title {
-        padding: 17px 25px;
+      background-color: $light-gray;
+      border-radius: 3px;
+      color: #455B65;
+      font-size: 14px;
+      z-index: 100;
+      .filter-item {
         display: block;
-      }
-      .select-filters-title {
-      }
-      .filter-item-menu {
-        background-color: #EDF4FA;
-        padding: 17px 25px;
-      }
-      .filter-item-value {
-        padding: 10px 0 10px 25px;
         position: relative;
-        display: inline-block;
-        width: 50%;
-        &:before {
-          position: absolute;
-          left: 0;
-          top: 7px;
-          content: "";
+        cursor: pointer;
+        border-radius: 3px;
+        border: 1px solid transparent;
+        .search-filter {
+          display: block;
+        }
+        .filter-title,
+        .empty-filter-title {
+          padding: 17px 25px;
+          &:after {
+            position: absolute;
+            content: "";
+            width: 11px;
+            height: 7px;
+            right: 7px;
+            top: 21px;
+            background-image: image-url("arrow.svg");
+            transform: rotate(180deg);
+          }
+        }
+        .filter-title {
+          display: none;
+        }
+        .empty-filter-title {
+          display: block;
+        }
+        .filter-item-menu {
+          background-color: $blue-gray;
+          padding: 17px 25px;
+        }
+        .filter-item-value {
+          padding: 10px 0 10px 25px;
+          position: relative;
           display: inline-block;
-          width: 20px;
-          height: 20px;
-          background-image: image-url("checkbox.svg");
+          width: 50%;
+          &:before {
+            position: absolute;
+            left: 0;
+            top: 7px;
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: image-url("checkbox.svg");
+          }
+          &.select:before {
+            background-image: image-url("full-checkbox.svg");
+          }
         }
-        &.select:before {
-          background-image: image-url("full-checkbox.svg");
+        &.open {
+          .filter-title {
+            &:after {
+              background-image: image-url("close.svg");
+              width: 10px;
+              height: 10px;
+            }
+          }
+          .search-filter {
+            display: block;
+          }
         }
-      }
-      &.open {
-        &:after {
-          background-image: image-url("close.svg");
-          width: 10px;
-          height: 10px;
+        &.select {
+          .filter-title {
+            display: block;
+          }
+          .empty-filter-title {
+            display: none;
+          }
         }
       }
     }
+    .clear-all-filter {
+      position: absolute;
+      left: 50%;
+      bottom: -29px;
+      margin-left: -30px;
+      width: 58px;
+      height: 58px;
+      background-color: $light-gray;
+      border-radius: 50%;
+      z-index: 10;
+      cursor: pointer;
+      &:after {
+        position: absolute;
+        content: "";
+        bottom: 13px;
+        left: 21px;
+        width: 15px;
+        height: 10px;
+        background-image: image-url("arrow.svg");
+      }
+    }
+    .show-result-mobile {
+      display: block;
+      text-align: center;
+      border-radius: 3px;
+      color: white;
+      padding: 15px 0;
+      background-color: $base-btn-color;
+      cursor: pointer;
+      z-index: 100;
+      position: relative;
+    }
   }
-
 }
 
 @media #{$medium-up} {
   header {
-    .filters {
-      margin: 0 10px;
-      padding: 17px 15px;
-      .filter-item {
-        display: inline-block;
-        &:after {
-          top: 15px;
-        }
-        &.open {
-          background-color: #EDF4FA;
-        }
-        .filter-item-menu {
-          max-height: 200px;
-          overflow-y: auto;
-          border-bottom-left-radius: 3px;
-          border-bottom-right-radius: 3px;
-          padding: 17px 15px;
-        }
-        .filter-item-value {
-          width: 100%;
-        }
-        .filter-title {
-          padding: 10px 35px 10px 15px;
+    .search {
+      .search-btn {
+        &.active {
+          display: none;
         }
       }
+    }
+    .filter-panel {
+      .filters {
+        margin: 0 10px;
+        padding: 17px 15px 0;
+        .filter-item {
+          display: inline-block;
+          margin-bottom: 15px;
+          margin-right: 20px;
+          &:after {
+            top: 15px;
+          }
+          &.open {
+            background-color: $blue-gray;
+          }
+          .filter-title,
+          .empty-filter-title {
+            &:after {
+              top: 15px;
+            }
+          }
+          &.select:not(.open) {
+            background-color: $blue-gray;
+            border-color: #DFE7EA;
+          }
+          .filter-item-menu {
+            max-height: 200px;
+            overflow-y: auto;
+            border-radius: 3px;
+            padding: 17px 15px;
+          }
+          .filter-item-value {
+            width: 100%;
+          }
+          .filter-title,
+          .empty-filter-title {
+            padding: 10px 35px 10px 15px;
+          }
+        }
+      }
+      .show-result-mobile {
+        display: none;
+      }
+
     }
   }
 }

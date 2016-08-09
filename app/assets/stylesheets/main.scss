@@ -1,6 +1,6 @@
-$medium-up: "(min-width: 740px)";
-$large-up: "(min-width: 1000px)";
-
+@import "settings/*";
+@import "components/*";
+@import "main_partial/*";
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -32,7 +32,7 @@ ul {
 }
 
 body {
-  background-color: #ECEFF0;
+  background-color: $base-gray;
   font-size: 14px;
   color: black;
 }
@@ -50,6 +50,3 @@ body {
     max-width: 940px;
   }
 }
-
-@import "components/*";
-@import "main_partial/*";

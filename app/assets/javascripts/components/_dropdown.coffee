@@ -3,6 +3,17 @@ class @DropdownMenu
     obj = @
     @elem = options.elem
 
-    @elem.click (e) ->
-      if $(e.target).closest(".c-dropdown-toggle").length
-        obj.elem.toggleClass("open")
+    @elem.each ->
+      $(@).click (e) ->
+        e.stopPropagation()
+        current = @
+        if $(e.target).closest(".c-dropdown-toggle").length
+          obj.elem.each ->
+            $(@).removeClass("open") if @ != current
+          $(@).toggleClass("open")
+        else if $(@).hasClass("hide-by-select") and $(e.target).closest(".c-dropdown-item").length
+          $(@).removeClass("open")
+
+
+    $(document).click ->
+      obj.elem.removeClass("open")

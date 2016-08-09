@@ -2,13 +2,21 @@ header
   .container
     .search
       input.search-field placeholder="Search"
-    .filters
-      .filter-item.c-dropdown data-category="genres"
-        span.select-filters-title.c-dropdown-toggle
-        span.filter-title.c-dropdown-toggle Any genre
-        ul.c-dropdown-menu.filter-item-menu
-          li.c-dropdown-item.filter-item-value data-category-value="Action" Action
-          li.c-dropdown-item.filter-item-value data-category-value="Crime" Crime
+      .search-btn
+    .filter-panel
+      .filters
+        - 1.times do |i|
+          .filter-item.c-dropdown data-category="genres"
+            span.empty-filter-title.c-dropdown-toggle Any genres
+            span.filter-title.c-dropdown-toggle
+            input.search-filter.c-dropdown-toggle
+            ul.c-dropdown-menu.filter-item-menu
+              li.c-dropdown-item.filter-item-value data-category-value="Action" Action
+              li.c-dropdown-item.filter-item-value data-category-value="Crime" Crime
+              li.c-dropdown-item.filter-item-value data-category-value="Drama" Drama
+              li.c-dropdown-item.filter-item-value data-category-value="Comedy" Comedy
+      .show-result-mobile
+      .clear-all-filter
             
             
             

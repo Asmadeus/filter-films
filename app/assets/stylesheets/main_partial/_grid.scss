@@ -7,8 +7,9 @@
     width: 142px;
     height: 204px;
     margin: 3px 0;
-    background-color: #ECEFF0;
-    padding: 80px 10px 10px 10px;
+    background-color: $base-gray;
+    padding: 40px 10px 10px 10px;
+    overflow: hidden;
     .title {
       display: inline-block;
       margin-right: 6px;

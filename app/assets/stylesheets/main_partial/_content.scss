@@ -1,17 +1,18 @@
 .content {
   background-color: white;
+  display: none;
   .line-block {
     @extend .clearfix;
     margin: 15px 0;
     .title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       float: left;
     }
     .select-order {
+      font-size: 14px;
       float: right;
       margin-top: 7px;
-      background-color: #EDF4FA;
       border-radius: 3px;
       cursor: pointer;
       &:after {
@@ -26,19 +27,35 @@
       }
       .order-title {
         padding: 11px 30px 11px 17px;
-
+        color: $base-link-color;
       }
       .select-order-menu {
         padding: 17px 15px;
-        background-color: #edf4fa;
+        background-color: $blue-gray;
       }
       .select-order-value {
       }
       &.open {
+        background-color: $blue-gray;
         &:after {
           transform: rotate(0deg);
         }
       }
     }
   }
+}
+
+@media #{$medium-up} {
+  .content {
+    .line-block {
+      .title {
+        font-size: 20px;
+      }
+      .select-order {
+        font-size: 16px;
+      }
+    }
+  }
+}
+@media #{$large-up} {
 }

@@ -1,9 +1,6 @@
 $(document).ready ->
 
-  menus = []
-  $(".c-dropdown").each ->
-    menu = new DropdownMenu(elem: $(this))
-    menus.push(menu)
+  menus = new DropdownMenu(elem: $(".c-dropdown"))
 
   gridData = new GridData()
 
@@ -13,7 +10,7 @@ $(document).ready ->
   )
 
   filter = new Filter({
-    elem: $("header .filters")
+    elem: $("header .filter-panel")
     gridData: gridData
   })
 

@@ -30,10 +30,14 @@
         color: $base-link-color;
       }
       .select-order-menu {
-        padding: 17px 15px;
+        padding: 0 15px 17px 36px;
         background-color: $blue-gray;
       }
       .select-order-value {
+        padding: 8px 0;
+        &.select {
+          display: none;
+        }
       }
       &.open {
         background-color: $blue-gray;

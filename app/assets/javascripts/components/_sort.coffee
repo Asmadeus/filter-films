@@ -8,9 +8,10 @@ class @Sort
     @sortCategories.click ->
       category = $(@).data("order-category")
       if !$(@).hasClass("select")
-        obj.gridData.sortKey = category
-        url = "#{obj.gridData.currentQuery}&order=#{category}&"
+        url = obj.gridData.currentQuery.replace(/order=(.+?)&/g, "")
+        url = "#{url}order=#{category}&"
         obj.gridData.currentQuery = url
+        console.log url
         obj.gridData.getFilms(url, true)
         obj.sortCategories.removeClass("select")
         $(@).addClass("select")

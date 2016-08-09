@@ -19,7 +19,7 @@ class @Filter
 
     @elem.click (e) ->
       if !$(e.target).closest(obj.clearFilterBtn).length
-        $(@).removeClass("close") if $(@).hasClass("close")
+        $("header").removeClass("close-filter") if $("header").hasClass("close-filter")
 
   filterAction = (filter, obj) ->
     category = filter.data("category")
@@ -65,7 +65,7 @@ class @Filter
     )
 
   clearFilter = (elem) ->
-    elem.addClass("close")
+    $("header").addClass("close-filter")
     elem.find(".filter-item").each ->
       $(@).find(".filter-title").text("")
       $(@).find(".filter-item-value").removeClass("select")

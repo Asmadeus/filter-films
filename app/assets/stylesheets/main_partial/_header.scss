@@ -45,6 +45,11 @@ header {
   }
   .filter-panel {
     position: relative;
+    .text {
+      display: none;
+      text-align: center;
+      color: #546E7A;
+    }
     .filters {
       position: relative;
       background-color: $light-gray;
@@ -53,7 +58,7 @@ header {
       font-size: 14px;
       z-index: 100;
       .filter-item {
-        display: block;
+        display: none;
         position: relative;
         cursor: pointer;
         border-radius: 3px;
@@ -155,6 +160,15 @@ header {
       z-index: 100;
       position: relative;
     }
+    // &.close {
+    //   .text {
+    //     display: block;
+    //   }
+    //   .filter-item,
+    //   .clear-all-filter {
+    //     display: none;
+    //   }
+    // }
   }
 }
 
@@ -238,7 +252,19 @@ header {
       .show-result-mobile {
         display: none;
       }
-
+      &.close {
+        .text {
+          display: block;
+        }
+        .filters {
+          padding: 7px 15px;
+          cursor: pointer;
+        }
+        .filter-item,
+        .clear-all-filter {
+          display: none;
+        }
+      }
     }
   }
 }

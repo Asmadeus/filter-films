@@ -15,7 +15,11 @@ class @Filter
     @clearFilterBtn.click ->
       obj.gridData.currentQuery = obj.gridData.apiUrl
       obj.gridData.getFilms(obj.gridData.currentQuery)
-      clearFilter(obj.filterCategories)
+      clearFilter(obj.elem)
+
+    @elem.click (e) ->
+      if !$(e.target).closest(obj.clearFilterBtn).length
+        $(@).removeClass("close") if $(@).hasClass("close")
 
   filterAction = (filter, obj) ->
     category = filter.data("category")
@@ -61,7 +65,8 @@ class @Filter
     )
 
   clearFilter = (elem) ->
-    elem.each ->
+    elem.addClass("close")
+    elem.find(".filter-item").each ->
       $(@).find(".filter-title").text("")
       $(@).find(".filter-item-value").removeClass("select")
       $(@).removeClass("select")
